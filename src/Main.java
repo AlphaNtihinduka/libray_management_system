@@ -1,8 +1,61 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+    static ArrayList<String> mainMenu = new ArrayList<>(List.of("Login as Student", "Login as Librarian", "Login as Admin", "Register"));
+    static ArrayList<String> studentMenu = new ArrayList<>(List.of("View available books", "Search book", "Borrow a Book", "View Borrowed Books", "Return a book", "Logout"));
+    static ArrayList<String> LibrianMenu = new ArrayList<>(List.of("Add new Book", "Remove book", "View issued Books", "Issue a book to Student", "Receive returned Book", "Logout"));
+    static ArrayList<String> adminMenu = new ArrayList<>(List.of("Manage Users", "Add new Librarian/Admin", "Logout"));
+
+    static Scanner input = new Scanner(System.in);
+
+
     public static void main(String[] args) {
-        System.out.println("Hello");
+        mainMenu();
+
+    }
+
+    public static void mainMenu() {
+        while (true) {
+            printMenuOptions(mainMenu);
+            System.out.print("Select option from the menu: ");
+            int option = input.nextInt();
+            switch (option) {
+                case 1:
+                    login(1);
+                    break;
+                case 2:
+                    login(2);
+                    break;
+                case 3:
+                    login(3);
+                    break;
+                case 4:
+                    register();
+                    break;
+                default:
+                    System.out.println("Wrong choice");
+            }
+
+
+        }
+    }
+
+    private static void register() {
+        System.out.println("Registration successfully");
+    }
+
+    private static void login(int i) {
+        System.out.println("Login successfully"+i);
+    }
+
+    public static void printMenuOptions(ArrayList<String> mainMenu) {
+        for (int i = 0; i < mainMenu.size(); i++) {
+            System.out.println((i+1)+". "+mainMenu.get(i));
+        }
     }
 }
 
