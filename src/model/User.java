@@ -47,7 +47,7 @@ public abstract class User {
 
     @Override
     public String toString() {
-        return ;
+        return "UserID: " + userId + ", Name: " + name + ", Username: " + userName + ", Type: " + this.getClass().getSimpleName();
     }
 }
 
