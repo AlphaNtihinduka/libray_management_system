@@ -2,6 +2,10 @@ package model;
 
 import java.util.Objects;
 
+//TODO
+//First store users in arrayList
+//Later to json file
+
 public abstract class User {
     String userId;
     String name;
