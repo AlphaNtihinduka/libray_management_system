@@ -1,4 +1,8 @@
+import model.Book;
+import model.User;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,6 +12,15 @@ public class Menu {
     static ArrayList<String> studentMenu = new ArrayList<>(List.of("View available books", "Search book", "Borrow a Book", "View Borrowed Books", "Return a book", "Logout"));
     static ArrayList<String> LibrianMenu = new ArrayList<>(List.of("Add new Book", "Remove book", "View issued Books", "Issue a book to Student", "Receive returned Book", "Logout"));
     static ArrayList<String> adminMenu = new ArrayList<>(List.of("Manage Users", "Add new Librarian/Admin", "Logout"));
+    static HashMap<String, List<User>> users;
+    static List<Book> books;
+    static User currentUser;
+
+    public void Menu(HashMap<String, List<User>> users, List<Book> books) {
+        this.users = users.isEmpty()? new HashMap<>(): users;
+        this.books = books.isEmpty()? new ArrayList<>():books;
+    }
+
     public void mainMenu() {
         while (true) {
             printMenuOptions(mainMenu);
